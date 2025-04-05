@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <title>Claude Q&A</title>
   <meta charset="UTF-8">
-  <title>$Title$</title>
 </head>
 <body>
-$END$
+<h1>Ask Claude a Question</h1>
+<form action="/ask" method="post">
+  <input type="text" name="question" placeholder="Enter your question..." required />
+  <button type="submit">Ask</button>
+</form>
+
+<div th:if="${question}">
+  <h2>Question:</h2>
+  <p th:text="${question}"></p>
+</div>
+
+<div th:if="${answer}">
+  <h2>Answer:</h2>
+  <p th:text="${answer}"></p>
+</div>
 </body>
 </html>
